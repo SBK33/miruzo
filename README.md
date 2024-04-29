@@ -20,6 +20,8 @@
 *今の季節で観察できる植物を知りたい時
 ​
 ## 設計書
+*実装機能リスト
+https://docs.google.com/spreadsheets/d/1MyZJjrF1AiAc5Rrw0OLrkSt8GC5ILqtsszEb_FX0NBk/edit?usp=sharing
 <!--テーマを設定・提出する時点では不要です-->
 ​
 ## 開発環境
