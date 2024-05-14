@@ -11,16 +11,16 @@
 
 
 ### ターゲットユーザ
-*植物を勉強中の人
-*散歩が好きな人
+ *植物を勉強中の人
+ *散歩が好きな人
 ​
 ### 主な利用シーン
-*屋外にいる時
-*近所で観察できる植物を知りたい時
-*今の季節で観察できる植物を知りたい時
+ *屋外にいる時
+ *近所で観察できる植物を知りたい時
+ *今の季節で観察できる植物を知りたい時
 ​
 ## 設計書
-*実装機能リスト
+ *実装機能リスト
 https://docs.google.com/spreadsheets/d/1MyZJjrF1AiAc5Rrw0OLrkSt8GC5ILqtsszEb_FX0NBk/edit?usp=sharing
 <!--テーマを設定・提出する時点では不要です-->
 ​
@@ -30,8 +30,3 @@ https://docs.google.com/spreadsheets/d/1MyZJjrF1AiAc5Rrw0OLrkSt8GC5ILqtsszEb_FX0
 - フレームワーク：Ruby on Rails
 - JSライブラリ：jQuery
 - IDE：Cloud9
-​
-## 使用素材
-- 外部サービスの画像素材・音声素材を使用した場合は、必ずサービス名とURLを明記してください。
-- アプリケーションの実装に使用したgem/bootstrapのリファレンスなどの記載は不要です。
-- 使用しない場合は、使用素材の項目をREADMEから削除してください。
