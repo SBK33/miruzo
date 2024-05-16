@@ -10,8 +10,6 @@ class CreatePosts < ActiveRecord::Migration[6.1]
       t.integer :longitude
       t.boolean :is_private
       t.boolean :is_private_user
-      t.datetime :created_at
-      t.datetime :updated_at
       t.timestamps
     end
   end
