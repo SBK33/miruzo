@@ -46,10 +46,11 @@ ActiveRecord::Schema.define(version: 2024_05_15_154249) do
     t.string "name"
     t.text "note"
     t.datetime "observed_at"
-    t.integer "latitude"
-    t.integer "longitude"
     t.boolean "is_private"
     t.boolean "is_private_user"
+    t.string "address", default: "", null: false
+    t.float "latitude", default: 0.0, null: false
+    t.float "longitude", default: 0.0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
