@@ -1,1 +1,8 @@
 @use '~bootstrap/scss/bootstrap';
+
+
+#map {
+  width: 100%;
+  height: calc(100vh - 88px - 179px);
+}
+//heightに関しては、レイアウト確認後修正。現状は教材の数値を使用
