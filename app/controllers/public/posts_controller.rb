@@ -6,9 +6,15 @@ class Public::PostsController < ApplicationController
   end
 
   def new
+    @post = Post.new
   end
 
   def create
+    @post = Post.new(post_params)
+    @post.user_id = current_user.id
+    @post.save
+    redirect_to '/'
+#リダイレクト先要変更
   end
 
   def edit
@@ -18,5 +24,11 @@ class Public::PostsController < ApplicationController
   end
 
   def destroy
+  end
+
+  private
+  # ストロングパラメータ
+  def post_params
+    params.require(:post).permit(:observed_at, :name, :note)
   end
 end

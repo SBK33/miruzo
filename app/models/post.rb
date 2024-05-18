@@ -1,5 +1,10 @@
 class Post < ApplicationRecord
 
+#画像ファイルアップロード用の記述
+  has_one_attached :image
+#アソシエーション設定
+  belongs_to :user
+  
 #地図表示に関する記述
   validates :address, presence: true
 

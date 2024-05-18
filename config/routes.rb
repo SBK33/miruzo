@@ -3,16 +3,10 @@ Rails.application.routes.draw do
   scope module: :public do
     root to: "homes#top"
     get 'homes/about'
-    
-    
-    get 'posts/index'
-    get 'posts/show'
-    get 'posts/new'
-    get 'posts/create'
-    get 'posts/edit'
-    get 'posts/update'
-    get 'posts/destroy'
-    
+
+    resources :posts, only: [:new, :index, :show, :create, :edit, :update, :destroy]
+    #↑onlyにしなくてよい可能性あり。要確認。
+
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
