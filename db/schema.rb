@@ -50,7 +50,6 @@ ActiveRecord::Schema.define(version: 2024_05_15_154249) do
     t.boolean "is_private_user"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "address"
   end
 
   create_table "users", force: :cascade do |t|
