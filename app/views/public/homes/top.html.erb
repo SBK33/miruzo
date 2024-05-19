@@ -1,7 +1,9 @@
 <h1>top</h1>
-
+<p>
+    <%= link_to "新規投稿", new_post_path %>
+</p>
 <div class="container">
-  <div id="map"></div>
+    <div id="map"></div>
 </div>
 
 <%= javascript_pack_tag 'map', 'data-turbolinks-track': 'reload' %>
