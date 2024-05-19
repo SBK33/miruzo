@@ -29,6 +29,6 @@ class Public::PostsController < ApplicationController
   private
   # ストロングパラメータ
   def post_params
-    params.require(:post).permit(:observed_at, :name, :note)
+    params.require(:post).permit(:observed_at, :name, :note, :image)
   end
 end
