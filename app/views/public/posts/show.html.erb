@@ -8,6 +8,11 @@
 
   <p>投稿者：<%= @post.user.name %> ID：<%= @post.user_id %> </p>
   <p>投稿日：<%= @post.created_at.strftime('%Y/%m/%d') %></p>
+  <% if @post.user == current_user %>
+    <%= link_to "編集（未実装）", post_path(@post), method: :delete %>
+    <%= link_to "削除", post_path(@post), method: :delete %>
+  <% end %>
+  
 </div>
 
 <div>
