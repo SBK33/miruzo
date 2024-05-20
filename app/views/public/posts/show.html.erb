@@ -1,7 +1,9 @@
 <div>
-  <h1><%= @post.name %></h1>
-  <p>観察日：<%= @post.observed_at %></p>
-  <p>ノート：<br> <%= @post.note %></p>
+  <h2><%= @post.name %></h2>
+  <p>観察日：<%= @post.observed_at.strftime('%Y/%m/%d') %></p>
+   <%= image_tag @post.get_image %>
+   <h3>ノート：</h3>
+  <p> <%= @post.note %></p>
   <p>生育ステータス：</p>
 
   <p>投稿者：<%= @post.user.name %> ID：<%= @post.user_id %> </p>
