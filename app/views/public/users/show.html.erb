@@ -1,2 +1,9 @@
-<h1>Public::Users#show</h1>
-<p>Find me in app/views/public/users/show.html.erb</p>
+<!-- ユーザーの詳細 -->
+<div>
+  <h3><%= @user.name %></h3>
+  <%= image_tag @user.get_profile_image %>
+  <p>ID：<%= @user.id %></p>
+  <p>※挨拶を記載できるようにする</p>
+</div>
+
+<!-- ユーザーの投稿一覧 -->
