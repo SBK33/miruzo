@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
 #アソシエーション設定
   has_many :posts, dependent: :destroy
+  
 #画像の添付設定
   has_one_attached :profile_image
   def get_profile_image
