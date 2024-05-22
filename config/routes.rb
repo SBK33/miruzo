@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
     resources :posts, only: [:new, :index, :show, :create, :edit, :update, :destroy]
     #↑onlyにしなくてよい可能性あり。要確認。
-    resources :users, only: [:show, :edit]
+    resources :users, only: [:show, :edit, :update]
 
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

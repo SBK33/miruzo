@@ -15,5 +15,6 @@ class User < ApplicationRecord
       profile_image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
     end
     profile_image.variant(resize_to_limit: [100, 100]).processed
+#ai質問できるタイミングで上記のリサイズ失敗しているエラー原因確認する
   end
 end
