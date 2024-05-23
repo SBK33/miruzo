@@ -1,5 +1,6 @@
 class Public::PostsController < ApplicationController
   def index
+    @posts = Post.all
   end
 
   def show
@@ -36,6 +37,6 @@ class Public::PostsController < ApplicationController
   private
   # ストロングパラメータ
   def post_params
-    params.require(:post).permit(:observed_at, :name, :note, :image)
+    params.require(:post).permit(:observed_at, :name, :note, :image,:address, :latitude, :longitude)
   end
 end
