@@ -16,7 +16,7 @@
     <header>
       <% if user_signed_in? %>
         <li>
-          <%= link_to "ホーム", posts_path %>
+          <%= link_to "ホーム", root_path %>
         </li>
         <li>
           <%= link_to "マイページ", user_path(current_user.id) %>
@@ -35,7 +35,9 @@
     </header>
 
   <%= yield %>
-  <script src="https://cdn.jsdelivr.net/npm/jquery-jpostal-ja@2.14.45/jquery.jpostal.min.js"></script>
+  <!--<script src="https://cdn.jsdelivr.net/npm/jquery-jpostal-ja@2.14.45/jquery.jpostal.min.js"></script>-->
+  <script type="text/javascript" src="//jpostal-1006.appspot.com/jquery.jpostal.js"></script>
   <!--上記srcはyieldの前でなくても問題ないのか？-->
+  <!--jqueryのバージョンは-->
   </body>
 </html>
