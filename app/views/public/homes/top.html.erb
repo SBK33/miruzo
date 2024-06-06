@@ -2,8 +2,20 @@
 <p>
     <%= link_to "新規投稿", new_post_path %>
 </p>
+
+<p>postのデータ取れているか確認</p>
+<% @posts.each do |post| %>
+  <div>
+    <%= image_tag post.image %>
+    <p>名：<%= post.name %></p>
+    <p>説明：<%= post.note %></p>
+    <p>ユーザーネーム：<%= post.user.name %></p>
+  </div>
+<% end %>
+
 <div class="container">
     <div id="map"></div>
 </div>
 
 <%= javascript_pack_tag 'map', 'data-turbolinks-track': 'reload' %>
+
