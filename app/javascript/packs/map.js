@@ -32,6 +32,7 @@ async function initMap() {
       const userName = item.user.name;
       const postImage = item.image;
       const address = item.address;
+      const postId = item.id;
 
 
       const marker = new google.maps.marker.AdvancedMarkerElement ({
@@ -43,7 +44,9 @@ async function initMap() {
       const contentString = `
         <div class="information container p-0">
           <div class="mb-3">
-            <img class="thumbnail" src="${postImage}" loading="lazy">
+            <a href="posts/${postId}">
+              <img class="thumbnail" src="${postImage}" loading="lazy">
+            </a>
             <p class="lead m-0 font-weight-bold">${userName}</p>
           </div>
           <div>
@@ -52,12 +55,6 @@ async function initMap() {
           </div>
         </div>
       `;
-
-      //const thumbnail = document.querySelector('.thumbnail');
-      //thumbnail.addEventListener('click', () => {
-      //  window.location.href = 'https://web-camp.io/';
-      //});
-      //AI質問の回答もとに実装しているため、あっているか不明★要相談
 
       const infowindow = new google.maps.InfoWindow({
         content: contentString,
