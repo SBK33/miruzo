@@ -7,7 +7,9 @@
 <p>postのデータ取れているか確認</p>
 <% @posts.each do |post| %>
   <div>
-    <%= image_tag post.image %>
+    <%= link_to post_path(post.id) do %>
+        <%= image_tag post.get_image(100, 100) %>
+    <% end %>
     <p>名：<%= post.name %></p>
     <p>説明：<%= post.note %></p>
     <p>ユーザーネーム：<%= post.user.name %></p>

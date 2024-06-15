@@ -10,11 +10,11 @@ let map;
 async function initMap() {
   const { Map } = await google.maps.importLibrary("maps");
   const {AdvancedMarkerElement} = await google.maps.importLibrary("marker")
-  
+
   map = new Map(document.getElementById("map"), {
     center: { lat: 35.681236, lng: 139.767125 },
     zoom: 15,
-    mapId: "DEMO_MAP_ID", 
+    mapId: "DEMO_MAP_ID",
     mapTypeControl: false
   });
 
@@ -29,6 +29,10 @@ async function initMap() {
       const latitude = item.latitude;
       const longitude = item.longitude;
       const name = item.name;
+      const userName = item.user.name;
+      const postImage = item.image;
+      const address = item.address;
+
 
       const marker = new google.maps.marker.AdvancedMarkerElement ({
         position: { lat: latitude, lng: longitude },
@@ -36,6 +40,37 @@ async function initMap() {
         title: name,
         // 他の任意のオプションもここに追加可能
       });
+      const contentString = `
+        <div class="information container p-0">
+          <div class="mb-3">
+            <img class="thumbnail" src="${postImage}" loading="lazy">
+            <p class="lead m-0 font-weight-bold">${userName}</p>
+          </div>
+          <div>
+            <h1 class="h4 font-weight-bold">${name}</h1>
+            <p class="text-muted">${address}</p>
+          </div>
+        </div>
+      `;
+
+      //const thumbnail = document.querySelector('.thumbnail');
+      //thumbnail.addEventListener('click', () => {
+      //  window.location.href = 'https://web-camp.io/';
+      //});
+      //AI質問の回答もとに実装しているため、あっているか不明★要相談
+
+      const infowindow = new google.maps.InfoWindow({
+        content: contentString,
+        ariaLabel: name,
+      });
+
+      marker.addListener("click", () => {
+          infowindow.open({
+          anchor: marker,
+          map,
+        })
+      });
+
     });
   } catch (error) {
     console.error('Error fetching or processing posts:', error);
