@@ -1,2 +1,22 @@
 <!--indexをトップページ扱いにしようかな。モデルとコントローラがずれてると参考記事と差分があって迷いそうだわ。いったん記事そのまま実装するかあ。-->
 <h2>index</h2>
+
+<p>postのデータ取れているか確認</p>
+<% @posts.each do |post| %>
+  <div>
+    <%= image_tag post.image %>
+    <p>名：<%= post.name %></p>
+    <p>説明：<%= post.note %></p>
+    <p>ユーザーネーム：<%= post.user.name %></p>
+    <p>緯度：<%= post.latitude %></p>
+    <p>経度：<%= post.longitude %></p>
+    <p>住所：<%= post.address %></p>
+  </div>
+<% end %>
+
+<div class="container">
+    <div id="map"></div>
+</div>
+
+<%= javascript_pack_tag 'map', 'data-turbolinks-track': 'reload' %>
+<!--render 'map' -->
