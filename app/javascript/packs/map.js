@@ -10,10 +10,11 @@ let map;
 async function initMap() {
   const { Map } = await google.maps.importLibrary("maps");
   const {AdvancedMarkerElement} = await google.maps.importLibrary("marker")
+  
   map = new Map(document.getElementById("map"), {
     center: { lat: 35.681236, lng: 139.767125 },
     zoom: 15,
-    mapId: "DEMO_MAP_ID", // 追記
+    mapId: "DEMO_MAP_ID", 
     mapTypeControl: false
   });
 

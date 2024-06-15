@@ -11,6 +11,6 @@ json.data do
       json.address post.address
       json.latitude post.latitude
       json.longitude post.longitude
-    end  
+    end
   end
 end
