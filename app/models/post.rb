@@ -14,7 +14,11 @@ class Post < ApplicationRecord
     image.variant(resize_to_limit: [width, height]).processed
   end
 
+  validates :name, presence: true
+  validates :image, presence: true
+  validates :observed_at, presence: true
   validates :address, presence: true
+
   geocoded_by :address
   after_validation :geocode
 #geocoded_by :addressで、addressカラムの内容を緯度・経度に変換することを指定しています。
