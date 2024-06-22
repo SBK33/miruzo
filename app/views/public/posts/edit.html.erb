@@ -1,5 +1,14 @@
 <h2>投稿編集</h2>
-
+  <% if @post.errors.any? %>
+    <div id ="error_messages">
+      <h2> <%= @post.errors.count %> errors prohibited this book from being saved:</h2>
+      <ul>
+        <% @post.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 <%= form_with model: @post do |f| %>
   <%= f.file_field :image, accept: "image/*" %>
   <h4>観察日時</h4>

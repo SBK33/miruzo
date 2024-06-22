@@ -17,4 +17,7 @@ class User < ApplicationRecord
     profile_image.variant(resize_to_limit: [width, height]).processed
 #ai質問できるタイミングで上記のリサイズ失敗しているエラー原因確認する
   end
+  validates :name,
+    uniqueness: true,
+    length: { in: 2..20 }
 end
