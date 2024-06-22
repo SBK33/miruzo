@@ -1,7 +1,7 @@
 <h2>登録情報変更</h2>
   <% if @user.errors.any? %>
     <div id ="error_messages">
-      <h2> <%= @user.errors.count %> errors prohibited this book from being saved:</h2>
+       <%= @user.errors.count %>件のエラーが発生しました
       <ul>
         <% @user.errors.full_messages.each do |message| %>
           <li><%= message %></li>
