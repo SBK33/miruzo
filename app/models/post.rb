@@ -4,6 +4,8 @@ class Post < ApplicationRecord
   has_one_attached :image
 #アソシエーション設定
   belongs_to :user
+  has_many :comments, dependent: :destroy
+
 
 #画像添付用メソッド
   def get_image(width, height)
