@@ -1,4 +1,5 @@
 class Public::PostsController < ApplicationController
+  before_action :is_matching_login_user, only: [:edit, :update]
   def index
     respond_to do |format|
       format.html do
@@ -56,5 +57,13 @@ class Public::PostsController < ApplicationController
   # ストロングパラメータ
   def post_params
     params.require(:post).permit(:observed_at, :name, :note, :image,:address)
+  end
+
+  def is_matching_login_user
+    post = Post.find(params[:id])
+    user = User.find(post.user_id)
+    unless user.id == current_user.id
+      redirect_to posts_path
+    end
   end
 end
