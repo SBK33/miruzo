@@ -4,7 +4,7 @@
     <%= link_to "新規投稿", new_post_path %>
 </p>
 
-<p>postのデータ取れているか確認</p>
+<p>投稿一覧</p>
 <% @posts.each do |post| %>
   <div>
     <%= link_to post_path(post.id) do %>
@@ -18,7 +18,7 @@
     <p>住所：<%= post.address %></p>
   </div>
 <% end %>
-
+<p>投稿一覧（マップ）</p>
 <div class="container">
     <div id="map"></div>
 </div>
