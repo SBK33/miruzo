@@ -5,7 +5,10 @@ Rails.application.routes.draw do
     root to: "homes#top"
 #    get 'homes/about' => "homes#about", as: "about"
 
-    resources :posts, only: [:new, :index, :show, :create, :edit, :update, :destroy]
+    resources :posts, only: [:new, :index, :show, :create, :edit, :update, :destroy] do
+      resources :comments, only: [:create]
+    end
+    
     #↑onlyにしなくてよい可能性あり。要確認。
     resources :users, only: [:show, :edit, :update]
 
