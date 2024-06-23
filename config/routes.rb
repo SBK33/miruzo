@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 #    get 'homes/about' => "homes#about", as: "about"
 
     resources :posts, only: [:new, :index, :show, :create, :edit, :update, :destroy] do
-      resources :comments, only: [:create]
+      resources :comments, only: [:create, :destroy]
     end
     
     #↑onlyにしなくてよい可能性あり。要確認。
