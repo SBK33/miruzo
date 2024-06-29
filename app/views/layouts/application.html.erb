@@ -14,7 +14,12 @@
 
 <!--仮記載-->
     <header>
-      <% if user_signed_in? %>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ml-auto">
+
+        <% if user_signed_in? %>
         <li>
           <%= link_to "ホーム", posts_path %>
         </li>
@@ -32,6 +37,12 @@
           <%= link_to "ログイン", new_user_session_path %>
         </li>
       <% end %>
+
+            </ul>
+          </div>
+        </div>
+      </nav>
+
     </header>
     <main>
       <% flash.each do |message_type, message| %>
@@ -41,6 +52,14 @@
       <%= yield %>
       <script type="text/javascript" src="//jpostal-1006.appspot.com/jquery.jpostal.js"></script>
     </main>
-
+    <footer>
+      <div class="container mt-5">
+        <div class="row">
+          <div class="mx-auto">
+            <p>CopyRight Infratop.inc</p>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
