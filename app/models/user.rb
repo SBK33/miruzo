@@ -16,8 +16,19 @@ class User < ApplicationRecord
       profile_image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
     end
     profile_image.variant(resize_to_limit: [width, height]).processed
-#ai質問できるタイミングで上記のリサイズ失敗しているエラー原因確認する
   end
+  
+# 名前検索　方法分岐
+  def self.looks(search, word)
+    if search == "perfect_match"
+      @user = User.where("name LIKE?", "#{word}")
+    elsif search == "partial_match"
+      @user = User.where("name LIKE?","%#{word}%")
+    else
+      @user = User.all
+    end
+  end
+
   validates :name,
     uniqueness: true,
     length: { in: 2..20 }

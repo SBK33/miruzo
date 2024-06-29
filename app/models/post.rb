@@ -15,7 +15,16 @@ class Post < ApplicationRecord
     end
     image.variant(resize_to_limit: [width, height]).processed
   end
-
+# 名前検索 方法分岐 場所検索にいずれしたい
+  def self.looks(search, word)
+    if search == "perfect_match"
+      @post = Post.where("name LIKE?", "#{word}")
+    elsif search == "partial_match"
+      @post = Post.where("name LIKE?","%#{word}%")
+    else
+      @post = Post.all
+    end
+  end
   validates :name, presence: true
   validates :image, presence: true
   validates :observed_at, presence: true
