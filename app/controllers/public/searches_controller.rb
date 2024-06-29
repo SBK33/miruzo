@@ -6,6 +6,5 @@ class Public::SearchesController < ApplicationController
     else
       @posts = Post.looks(params[:search], params[:word])
     end
-#      redirect_to search_path
   end
 end
