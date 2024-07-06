@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
-
-  devise_for :admins
+#管理者用ルーティング
+  devise_for :admin, skip: [:registrations, :password], controllers: {
+    sessions: 'admin/sessions'
+  }
+#ユーザー用ルーティング
   devise_for :users
   scope module: :public do
     root to: "homes#top"
