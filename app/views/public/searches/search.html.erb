@@ -6,7 +6,11 @@
     <tbody>
       <% @users.each do |user| %>
         <tr>
-          <td><%= user.name %></td>
+          <td>
+            <%= link_to user_path(user.id) do %>
+                <%= user.name %>
+            <% end %>
+          </td>
           <td>
             <%= link_to user_path(user.id) do %>
                 <%= image_tag user.get_profile_image(100, 100) %>
@@ -16,14 +20,18 @@
       <% end %>
     </tbody>
   <% else %>
-    <!--検索対象モデルがUserではない時(= 検索対象モデルがBookの時) -->
+    <!--検索対象モデルがUserではない時(= 検索対象モデルがPostの時) -->
     <tbody>
       <% @posts.each do |post| %>
         <tr>
-          <td><%= post.name %></td>
           <td>
             <%= link_to post_path(post.id) do %>
-                <%= image_tag post.get_image(100, 100) %>
+              <%= post.name %>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to post_path(post.id) do %>
+              <%= image_tag post.get_image(100, 100) %>
             <% end %>
           </td>
         </tr>
