@@ -10,3 +10,8 @@
 #  post.address = "東京都千代田区丸の内1丁目" # 追記
 #  post.user = muto
 #end
+
+Admin.create!(
+  email: "admin@example.com",
+  password: "password"
+)
