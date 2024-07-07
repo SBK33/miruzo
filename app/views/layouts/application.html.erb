@@ -15,16 +15,27 @@
 <!--仮記載-->
     <header class="sticky-top">
       <div class="container">
-      <!--検索用部分テンプレートに変更-->
+
       <% if user_signed_in? %>
-        <div class="search_form">
-          <%= form_with url: search_path, local: true, method: :get do |f| %>
-            <%= f.text_field :word %>
-            <%= f.select :range, options_for_select([['User'], ['Post']]) %>
-            <%= f.select :search, options_for_select([["完全一致","perfect_match"], ["部分一致","partial_match"]]) %>
-            <%= f.submit "検索", class: "btn btn-primary" %>
-          <% end %>
+        <div class="row">
+          <div class="col-md-3">
+      <!--検索用部分テンプレートに変更-->
+            <%= link_to new_post_path,class:"nav-link text-dark" do%>
+              <i class="fa-solid fa-camera"></i> 新規投稿
+            <% end %>
+          </div>
+
+        <div class="col-md-8 offset-md-1">
+          <div class="search_form">
+            <%= form_with url: search_path, local: true, method: :get do |f| %>
+              <%= f.text_field :word %>
+              <%= f.select :range, options_for_select([['User'], ['Post']]) %>
+              <%= f.select :search, options_for_select([["完全一致","perfect_match"], ["部分一致","partial_match"]]) %>
+              <%= f.submit "検索", class: "btn btn-primary" %>
+            <% end %>
+          </div>
         </div>
+
       <% end %>
       </div>
     </header>
