@@ -45,7 +45,7 @@ async function initMap() {
         <div class="information container p-0">
           <div class="mb-3">
             <a href="posts/${postId}">
-              <img class="thumbnail" src="${postImage}" loading="lazy">
+              <img class="thumbnail" src="${postImage}" loading="lazy" width="100" height="100">
             </a>
             <p class="lead m-0 font-weight-bold">${userName}</p>
           </div>
