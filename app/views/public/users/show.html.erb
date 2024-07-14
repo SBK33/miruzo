@@ -11,45 +11,47 @@
             <p>ID：<%= @user.id %></p>
             <% if @user == current_user %>
               <%= link_to "編集", edit_user_path(@user) %> |
-              退会（未実装）
+              <!-- 退会（未実装）-->
             <% end %>
 
           </div>
-          
-
-          
-          <h3>投稿一覧</h3>
-           <table class="table">
-             <thead>
-               <tr>
-                 <th></th>
-                 <th>タイトル</th>
-                 <th>観察日</th>
-                 <th>投稿日</th>
-               </tr>
-
-             </thead>
-               <% @posts.each do |post| %>
-                 <tbody>
-
-                   <tr>
-                     <th>
-                        <%= link_to post_path(post.id) do %>
-                          <%= image_tag post.get_image(100, 100) %>
-                        <% end %>
-                     </th>
-                     <th>
-                        <%= link_to post_path(post.id) do %>
-                         <%= post.name %></th>
-                        <% end %>
-                     <th><%= post.observed_at.strftime('%Y/%m/%d') %></th>
-                     <th><%= post.created_at.strftime('%Y/%m/%d') %></th>
-
-                   </tr>
-                 </tbody>
-              <% end %>
 
 
+
+
+            <h3>投稿一覧</h3>
+            <div>
+             <table class="table">
+               
+               <thead>
+                 <tr>
+                   <th></th>
+                   <th>タイトル</th>
+                   <th>観察日</th>
+                   <th>投稿日</th>
+                 </tr>
+
+               </thead>
+                 <% @posts.each do |post| %>
+                   <tbody>
+
+                     <tr>
+                       <th>
+                          <%= link_to post_path(post.id) do %>
+                            <%= image_tag post.get_image(100, 100) %>
+                          <% end %>
+                       </th>
+                       <th>
+                          <%= link_to post_path(post.id) do %>
+                           <%= post.name %></th>
+                          <% end %>
+                       <th><%= post.observed_at.strftime('%Y/%m/%d') %></th>
+                       <th><%= post.created_at.strftime('%Y/%m/%d') %></th>
+
+                     </tr>
+                   </tbody>
+                <% end %>
+              </div>
 
 
         </div>

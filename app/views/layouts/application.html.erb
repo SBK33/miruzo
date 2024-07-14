@@ -13,7 +13,7 @@
   <body class="d-flex flex-column vh-100">
 
 <!--仮記載-->
-    <header class="sticky-top">
+    <header class="bg-light sticky-top">
       <div class="container">
 
       <% if user_signed_in? %>
@@ -48,6 +48,8 @@
 
       <%= yield %>
       <script type="text/javascript" src="//jpostal-1006.appspot.com/jquery.jpostal.js"></script>
+      <div class="push"></div>
+      <!-- ユーザー詳細のテーブルへの適応ができていない・意図しない挙動-->
     </main>
 
 
