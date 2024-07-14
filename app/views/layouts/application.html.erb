@@ -10,58 +10,91 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class="d-flex flex-column vh-100">
 
 <!--仮記載-->
-    <header>
-      <!--検索用部分テンプレートの挿入-->
-<% if user_signed_in? %>
-  <div class="search_form">
-    <%= form_with url: search_path, local: true, method: :get do |f| %>
-      <%= f.text_field :word %>
-      <%= f.select :range, options_for_select([['User'], ['Post']]) %>
-      <%= f.select :search, options_for_select([["完全一致","perfect_match"], ["部分一致","partial_match"]]) %>
-      <%= f.submit "検索", class: "btn btn-primary" %>
-    <% end %>
-  </div>
-<% end %>
+    <header class="bg-light sticky-top">
+      <div class="container">
 
+      <% if user_signed_in? %>
+        <div class="row">
+          <div class="col-md-3">
+      <!--検索用部分テンプレートに変更-->
+            <%= link_to new_post_path,class:"nav-link text-dark" do%>
+              <i class="fa-solid fa-camera"></i> 新規投稿
+            <% end %>
+          </div>
+
+        <div class="col-md-8 offset-md-1">
+          <div class="search_form">
+            <%= form_with url: search_path, local: true, method: :get do |f| %>
+              <%= f.text_field :word %>
+              <%= f.select :range, options_for_select([['User'], ['Post']]) %>
+              <%= f.select :search, options_for_select([["完全一致","perfect_match"], ["部分一致","partial_match"]]) %>
+              <%= f.submit "検索", class: "btn btn-primary" %>
+            <% end %>
+          </div>
+        </div>
+
+      <% end %>
+      </div>
     </header>
-    <main>
+
+
+    <main class="mb-auto">
       <% flash.each do |message_type, message| %>
         <div class="flash-message <%= message_type %>"><%= message %></div>
       <% end %>
 
       <%= yield %>
       <script type="text/javascript" src="//jpostal-1006.appspot.com/jquery.jpostal.js"></script>
+      <div class="push"></div>
+      <!-- ユーザー詳細のテーブルへの適応ができていない・意図しない挙動-->
     </main>
 
+
+
     <footer>
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-bottom">
         <div class="container">
-          <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav ml-auto">
+          <div class="row">
+            <a class="navbar-brand " href="/">
+                <span>miruzo</span>
+            </a>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+              <ul class="navbar-nav ml-auto">
+                <% if user_signed_in? %>
+                  <li>
+                    <%= link_to posts_path,class:"nav-link text-light" do%>
+                      <i class="fas fa-home"></i> ホーム
+                    <% end %>
+                  </li>
+                  <li>
+                    <%= link_to user_path(current_user.id),class:"nav-link text-light" do%>
+                      <i class="fa-solid fa-users"></i> マイページ
+                    <% end %>
+                  </li>
+                  <li>
+                    <%= link_to destroy_user_session_path, method: :delete,class:"nav-link text-light" do%>
+                      <i class="fa-solid fa-right-from-bracket"></i> ログアウト
+                    <% end %>
+                  </li>
 
-        <% if user_signed_in? %>
-        <li>
-          <%= link_to "ホーム", posts_path %>
-        </li>
-        <li>
-          <%= link_to "マイページ", user_path(current_user.id) %>
-        </li>
-        <li>
-          <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-        </li>
-      <% else %>
-        <li>
-          <%= link_to "新規登録", new_user_registration_path %>
-        </li>
-        <li>
-          <%= link_to "ログイン", new_user_session_path %>
-        </li>
-      <% end %>
+                <% else %>
+                  <li>
+                    <%= link_to new_user_registration_path,class:"nav-link text-light" do%>
+                      <i class="fa-solid fa-user-plus"></i> 新規登録
+                    <% end %>
+                  </li>
+                  <li>
+                    <%= link_to new_user_session_path,class:"nav-link text-light" do%>
+                      <i class="fa-solid fa-right-to-bracket"></i> ログイン
+                    <% end %>
+                  </li>
+                <% end %>
+              </ul>
+            </div>
 
-            </ul>
           </div>
         </div>
       </nav>

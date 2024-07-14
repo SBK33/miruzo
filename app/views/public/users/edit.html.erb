@@ -1,3 +1,8 @@
+<div class="containar">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+
+
 <h2>登録情報変更</h2>
   <% if @user.errors.any? %>
     <div id ="error_messages">
@@ -17,8 +22,12 @@
   <%= f.text_field :name, autofocus: true, placeholder:"名前"%>
   <h4>自己紹介</h4>
   <%= f.text_field :introduction %>
-  <h4>メールアドレス（今回変更させなくてもいいかな）</h4>
-  <h4>パスワード（今回変更させなくてもいいかな）</h4>
+
   <%= f.submit '保存' %>
 <% end %>
  <%= link_to "戻る", user_path(@user) %> 
+
+
+    </div>
+  </div>
+</div>

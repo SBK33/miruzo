@@ -1,27 +1,32 @@
 <!--indexをトップページ扱いにしようかな。モデルとコントローラがずれてると参考記事と差分があって迷いそうだわ。いったん記事そのまま実装するかあ。-->
-<h2>index</h2>
-<p>
-    <%= link_to "新規投稿", new_post_path %>
-</p>
 
-<p>投稿一覧</p>
-<% @posts.each do |post| %>
-  <div>
-    <%= link_to post_path(post.id) do %>
-        <%= image_tag post.get_image(100, 100) %>
-    <% end %>
-    <p>名：<%= post.name %></p>
-    <p>説明：<%= post.note %></p>
-    <p>ユーザーネーム：<%= post.user.name %></p>
-<!--    <p>緯度：<#%= post.latitude %></p>
-    <p>経度：<#%= post.longitude %></p> -->
-    <p>住所：<%= post.address %></p>
-  </div>
-<% end %>
-<p>投稿一覧（マップ）</p>
-<div class="container">
-    <div id="map"></div>
+<div class="container px-5 px-sm-0">
+    <div>
+        <h2>投稿一覧</h2>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <% @posts.each do |post| %>
+              <div>
+                <%= link_to post_path(post.id) do %>
+                    <%= image_tag post.get_image(80, 80) %>
+                <% end %>
+                <p>名：<%= post.name %></p>
+                <p>ユーザー：<%= post.user.name %></p>
+            <!--    <p>緯度：<#%= post.latitude %></p>
+                <p>経度：<#%= post.longitude %></p> -->
+                <p>住所：<%= post.address %></p>
+              </div>
+            <% end %>
+        </div>
+
+
+        <div class="col-md-8 offset-md-1">
+            <p>投稿一覧（マップ）</p>
+            <div class="container">
+                    <div id="map"></div>
+            </div>
+            <%= javascript_pack_tag 'map', 'data-turbolinks-track': 'reload' %>
+        </div>
+    </div>
 </div>
-
-<%= javascript_pack_tag 'map', 'data-turbolinks-track': 'reload' %>
-<!--render 'map' -->
