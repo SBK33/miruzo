@@ -9,17 +9,17 @@
             <% @posts.each do |post| %>
               <div>
                 <%= link_to post_path(post.id) do %>
-                    <%= image_tag post.get_image(100, 100) %>
+                    <%= image_tag post.get_image(80, 80) %>
                 <% end %>
                 <p>名：<%= post.name %></p>
-                <p>説明：<%= post.note %></p>
-                <p>ユーザーネーム：<%= post.user.name %></p>
+                <p>ユーザー：<%= post.user.name %></p>
             <!--    <p>緯度：<#%= post.latitude %></p>
                 <p>経度：<#%= post.longitude %></p> -->
                 <p>住所：<%= post.address %></p>
               </div>
             <% end %>
         </div>
+
 
         <div class="col-md-8 offset-md-1">
             <p>投稿一覧（マップ）</p>
